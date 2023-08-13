@@ -1,5 +1,4 @@
 <script setup>
-import GuestLayout from "./Layouts/GuestLayout.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 
 const form = useForm({
@@ -17,7 +16,7 @@ const submit = () => {
 </script>
 
 <template>
-  <GuestLayout>
+  <LayoutGuest>
     <Head title="Register" />
 
     <form @submit.prevent="submit">
@@ -99,5 +98,5 @@ const submit = () => {
         </PrimaryButton>
       </div>
     </form>
-  </GuestLayout>
+  </LayoutGuest>
 </template>

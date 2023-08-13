@@ -1,5 +1,4 @@
 <script setup>
-import GuestLayout from "./Layouts/GuestLayout.vue";
 import { Head, useForm } from "@inertiajs/vue3";
 
 defineProps({
@@ -18,7 +17,7 @@ const submit = () => {
 </script>
 
 <template>
-  <GuestLayout>
+  <LayoutGuest>
     <Head title="Forgot Password" />
 
     <div class="mb-4 text-sm text-gray-600">
@@ -57,5 +56,5 @@ const submit = () => {
         </PrimaryButton>
       </div>
     </form>
-  </GuestLayout>
+  </LayoutGuest>
 </template>
