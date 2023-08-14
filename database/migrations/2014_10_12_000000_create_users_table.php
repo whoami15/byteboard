@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('name');
             $table->string('role');
-            $table->string('avatar')->nullable();
+            $table->string('default_avatar')->nullable();
+            $table->string('profile_photo_path')->nullable();
             $table->text('bio')->nullable();
             $table->string('website')->nullable();
             $table->string('github_username')->nullable();
