@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Comment;
+use App\Models\Reply;
+use App\Models\Topic;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Schema;
@@ -29,6 +33,10 @@ class AppServiceProvider extends ServiceProvider
 
         Model::unguard();
 
-        Schema::defaultStringLength(191);
+        Relation::enforceMorphMap([
+            'topic' => Topic::class,
+            'comment' => Comment::class,
+            'reply' => Reply::class,
+        ]);
     }
 }
