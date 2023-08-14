@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -18,7 +19,6 @@ class Topic extends Model
 
     protected $casts = [
         'user_id' => 'integer',
-        'category_id' => 'integer',
         'views' => 'integer',
         'accepted_answer' => 'boolean',
     ];
@@ -57,9 +57,9 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function category(): BelongsTo
+    public function tags(): BelongsToMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Tag::class)->using(TagTopic::class);
     }
 
     public function comments(): HasMany
