@@ -9,7 +9,9 @@ class TopicController extends Controller
 {
     public function index()
     {
-        //
+        return inertia()->render('Topics/Index', [
+            'topics' => Topic::with('user:id,username,name,profile_photo_path,default_avatar')->latest()->get(),
+        ]);
     }
 
     public function create()
