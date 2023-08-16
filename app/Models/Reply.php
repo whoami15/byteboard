@@ -17,11 +17,6 @@ class Reply extends Model
         'comment_id' => 'integer',
     ];
 
-    public function likes(): MorphMany
-    {
-        return $this->morphMany(Like::class, 'likable');
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

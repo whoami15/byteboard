@@ -45,9 +45,9 @@ class User extends Authenticatable
         return $this->hasMany(Reply::class);
     }
 
-    public function likes(): HasMany
+    public function votes(): HasMany
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Vote::class);
     }
 
     public function bookmarks(): HasMany

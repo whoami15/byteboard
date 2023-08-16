@@ -18,9 +18,9 @@ class Comment extends Model
         'topic_id' => 'integer',
     ];
 
-    public function likes(): MorphMany
+    public function votes(): MorphMany
     {
-        return $this->morphMany(Like::class, 'likable');
+        return $this->morphMany(Vote::class, 'votable');
     }
 
     public function bookmarks(): MorphMany

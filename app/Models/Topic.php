@@ -34,9 +34,9 @@ class Topic extends Model
         ];
     }
 
-    public function likes(): MorphMany
+    public function votes(): MorphMany
     {
-        return $this->morphMany(Like::class, 'likable');
+        return $this->morphMany(Vote::class, 'votable');
     }
 
     public function bookmarks(): MorphMany
@@ -47,9 +47,9 @@ class Topic extends Model
     /**
      * Get the topic's most popular comment.
      */
-    public function bestComment(): MorphOne
+    public function popularComment(): MorphOne
     {
-        return $this->morphOne(Like::class, 'likable')->ofMany('likes', 'max');
+        return $this->morphOne(Vote::class, 'votable')->ofMany('votes', 'max');
     }
 
     public function user(): BelongsTo
