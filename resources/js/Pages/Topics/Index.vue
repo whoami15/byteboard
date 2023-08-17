@@ -20,7 +20,7 @@ const props = defineProps({
 
     <div class="py-12">
       <div class="mx-auto max-w-4xl sm:px-6 lg:px-8">
-        <div class="mt-6 divide-y bg-white shadow-sm">
+        <div class="mt-6 divide-y border bg-white">
           <TopicItem v-for="topic in topics" :key="topic.id" :topic="topic" />
         </div>
       </div>
