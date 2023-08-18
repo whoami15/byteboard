@@ -11,7 +11,7 @@ class TopicSeeder extends Seeder
         $randomTopics = \App\Models\Topic::inRandomOrder()->take(20)->get();
 
         $randomTopics->each(function ($topic) {
-            $tags = \App\Models\Tag::inRandomOrder()->take(3)->pluck('id');
+            $tags = \App\Models\Tag::inRandomOrder()->take(random_int(1, 4))->pluck('id');
 
             $topic->tags()->attach($tags);
 
