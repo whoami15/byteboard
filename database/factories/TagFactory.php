@@ -14,8 +14,8 @@ class TagFactory extends Factory
         return [
             'slug' => $this->faker->slug(),
             'name' => $this->faker->word(),
-            'excerpt' => $this->faker->sentence(),
             'description' => $this->faker->paragraphs($this->faker->numberBetween(1, 3), true),
+            'excerpt' => $this->faker->sentence(),
         ];
     }
 }

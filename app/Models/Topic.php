@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 /**
  * App\Models\Topic
@@ -127,6 +128,13 @@ class Topic extends Model
 
             $this->increment('views');
         }
+    }
+
+    protected function excerpt(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => Str::limit(strip_tags($value), 200),
+        );
     }
 
     protected function url(): Attribute

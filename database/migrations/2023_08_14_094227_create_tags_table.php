@@ -12,8 +12,8 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('name');
-            $table->string('excerpt');
             $table->text('description');
+            $table->string('excerpt');
             $table->string('logo_path')->nullable();
             $table->timestamps();
         });

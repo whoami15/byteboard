@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('body');
+            $table->string('excerpt');
             $table->unsignedBigInteger('views');
             $table->timestamps();
             $table->softDeletes();

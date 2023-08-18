@@ -10,7 +10,11 @@ class TopicController extends Controller
     public function index()
     {
         return inertia()->render('Topics/Index', [
-            'topics' => Topic::with('user:id,username,name,profile_photo_path,default_avatar')->latest()->get(),
+            'topics' => Topic::query()
+                ->with('user:id,username,name,profile_photo_path,default_avatar')
+                ->withCount('votes')
+                ->latest()
+                ->get(),
         ]);
     }
 
@@ -33,15 +37,17 @@ class TopicController extends Controller
         $topic->trackView();
 
         $topic->load([
-            'user',
+            'user:id,username,name',
             'tags',
             'comments' => [
-                'user',
+                'user:id,username,name',
                 'replies' => [
-                    'user',
+                    'user:id,username,name',
                 ],
             ],
         ]);
+
+        dd($topic);
 
         return inertia()->render('Topics/Show', [
             'topic' => $topic->load('user'),

@@ -17,11 +17,15 @@ const props = defineProps({
         {{ topic.title }}
       </Link>
 
-      <small class="text-gray-500">{{ topic.views }} views</small>
+      <div class="flex items-center gap-3">
+        <small class="text-gray-500">{{ topic.views }} views</small>
+
+        <small class="text-gray-500">{{ topic.votes_count }} votes</small>
+      </div>
     </div>
 
     <span class="block text-sm">- {{ topic.user.name }}</span>
 
-    <p class="mt-4">{{ topic.body }}</p>
+    <p class="mt-4">{{ topic.excerpt }}</p>
   </div>
 </template>
