@@ -12,7 +12,7 @@ class TopicController extends Controller
         return inertia()->render('Topics/Index', [
             'topics' => Topic::query()
                 ->with([
-                    'user:id,username,name,profile_photo_path,default_avatar',
+                    'user:id,username,email,name,profile_photo_path,default_avatar',
                     'tags',
                 ])
                 ->withCount(['votes', 'comments'])

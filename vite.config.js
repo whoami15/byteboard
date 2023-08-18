@@ -26,6 +26,7 @@ export default defineConfig({
     }),
     autoimport({
       vueTemplate: true,
+      dirs: ["resources/js/composables", "resources/js/utils"],
       imports: [
         "vue",
         "@vueuse/core",
