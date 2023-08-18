@@ -21,6 +21,8 @@ const props = defineProps({
         <small class="text-gray-500">{{ topic.views }} views</small>
 
         <small class="text-gray-500">{{ topic.votes_count }} votes</small>
+
+        <small class="text-gray-500">{{ topic.comments_count }} comments</small>
       </div>
     </div>
 
