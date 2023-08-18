@@ -67,6 +67,11 @@ class Topic extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function topicViews(): HasMany
+    {
+        return $this->hasMany(TopicView::class);
+    }
+
     protected function url(): Attribute
     {
         return Attribute::make(
