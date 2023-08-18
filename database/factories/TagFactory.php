@@ -12,7 +12,10 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'slug' => $this->faker->slug(),
+            'name' => $this->faker->word(),
+            'excerpt' => $this->faker->sentence(),
+            'description' => $this->faker->paragraphs($this->faker->numberBetween(1, 3), true),
         ];
     }
 }

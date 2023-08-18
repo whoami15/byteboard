@@ -8,6 +8,6 @@ class TagSeeder extends Seeder
 {
     public function run(): void
     {
-        //
+        \App\Models\Tag::factory()->count(20)->create();
     }
 }

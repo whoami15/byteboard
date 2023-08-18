@@ -13,6 +13,52 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * App\Models\Topic
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $slug
+ * @property string $title
+ * @property string $body
+ * @property int $views
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Bookmark> $bookmarks
+ * @property-read int|null $bookmarks_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read int|null $comments_count
+ * @property-read \App\Models\Vote|null $popularComment
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Tag> $tags
+ * @property-read int|null $tags_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\TopicView> $topicViews
+ * @property-read int|null $topic_views_count
+ * @property-read \App\Models\User|null $user
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $votes
+ * @property-read int|null $votes_count
+ *
+ * @method static \Database\Factories\TopicFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereViews($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic withoutTrashed()
+ *
+ * @mixin \Eloquent
+ */
 class Topic extends Model
 {
     use HasFactory, SoftDeletes, Sluggable;
@@ -70,6 +116,17 @@ class Topic extends Model
     public function topicViews(): HasMany
     {
         return $this->hasMany(TopicView::class);
+    }
+
+    public function trackView(): void
+    {
+        if (! $this->topicViews()->where('ip_address', request()->ip())->exists()) {
+            $this->topicViews()->create([
+                'ip_address' => request()->ip(),
+            ]);
+
+            $this->increment('views');
+        }
     }
 
     protected function url(): Attribute

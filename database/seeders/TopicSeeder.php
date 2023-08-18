@@ -8,6 +8,18 @@ class TopicSeeder extends Seeder
 {
     public function run(): void
     {
-        \App\Models\Topic::factory(10)->create();
+        $randomTopics = \App\Models\Topic::inRandomOrder()->take(20)->get();
+
+        $randomTopics->each(function ($topic) {
+            $tags = \App\Models\Tag::inRandomOrder()->take(3)->pluck('id');
+
+            $topic->tags()->attach($tags);
+
+            $comments = \App\Models\Comment::factory()->count(3)->create(['topic_id' => $topic->id]);
+
+            $randomPost = $comments->random();
+            $randomPost->accepted_answer = true;
+            $randomPost->save();
+        });
     }
 }

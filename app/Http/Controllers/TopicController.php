@@ -29,6 +29,23 @@ class TopicController extends Controller
         if ($slug !== $topic->slug) {
             return to_route('topics.show', ['topic' => $topic, 'slug' => $topic->slug]);
         }
+
+        $topic->trackView();
+
+        $topic->load([
+            'user',
+            'tags',
+            'comments' => [
+                'user',
+                'replies' => [
+                    'user',
+                ],
+            ],
+        ]);
+
+        return inertia()->render('Topics/Show', [
+            'topic' => $topic->load('user'),
+        ]);
     }
 
     public function edit(Topic $topic)

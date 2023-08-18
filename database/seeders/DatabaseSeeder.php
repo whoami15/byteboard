@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Enums\Role;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,16 +13,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'role' => Role::USER,
         ]);
 
+        \App\Models\User::factory()->count(30)->create()->each(function ($user) {
+            $user->topics()->saveMany(\App\Models\Topic::factory()->count(3)->make());
+        });
+
         $this->call([
+            TagSeeder::class,
             TopicSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }
