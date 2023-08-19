@@ -18,14 +18,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        \App\Models\User::factory()->count(30)->create()->each(function ($user) {
-            $user->topics()->saveMany(\App\Models\Topic::factory()->count(3)->make());
-        });
+        \App\Models\User::factory()->count(40)->create();
 
         $this->call([
             TagSeeder::class,
             TopicSeeder::class,
             CommentSeeder::class,
+            ReplySeeder::class,
+            VoteSeeder::class,
         ]);
     }
 }

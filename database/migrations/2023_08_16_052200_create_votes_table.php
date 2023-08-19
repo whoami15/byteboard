@@ -16,8 +16,13 @@ return new class extends Migration
                 ->constrained()
                 ->nullOnDelete();
             $table->morphs('votable');
+            $table->string('type');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['user_id', 'votable_id', 'votable_type', 'type'], 'vote_user_votable_type_type_index');
+
+            $table->unique(['user_id', 'votable_id', 'votable_type']);
         });
     }
 

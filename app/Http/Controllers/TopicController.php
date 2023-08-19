@@ -14,7 +14,7 @@ class TopicController extends Controller
                 'user:id,username,email,name,profile_photo_path,default_avatar',
                 'tags',
             ])
-            ->withCount(['votes', 'comments'])
+            ->withCount(['comments'])
             ->latest()
             ->paginate(15)
             ->onEachSide(1);
@@ -43,20 +43,18 @@ class TopicController extends Controller
         $topic->trackView();
 
         $topic->load([
-            'user:id,username,name,profile_photo_path,default_avatar',
+            'user:id,username,email,name,profile_photo_path,default_avatar',
             'tags',
             'comments' => [
-                'user:id,username,name,profile_photo_path,default_avatar',
+                'user:id,username,email,name,profile_photo_path,default_avatar',
                 'replies' => [
-                    'user:id,username,name,profile_photo_path,default_avatar',
+                    'user:id,username,email,name,profile_photo_path,default_avatar',
                 ],
             ],
         ]);
 
-        dd($topic);
-
         return inertia()->render('Topics/Show', [
-            'topic' => $topic->load('user'),
+            'topic' => $topic,
         ]);
     }
 

@@ -12,7 +12,7 @@ class VoteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'type' => $this->faker->randomElement(['upvote', 'downvote']),
         ];
     }
 }

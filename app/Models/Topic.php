@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -70,7 +71,10 @@ class Topic extends Model
         'accepted_answer' => 'boolean',
     ];
 
-    protected $appends = ['url'];
+    protected $appends = [
+        'total_votes',
+        'url',
+    ];
 
     public function sluggable(): array
     {
@@ -84,6 +88,12 @@ class Topic extends Model
     public function votes(): MorphMany
     {
         return $this->morphMany(Vote::class, 'votable');
+    }
+
+    public function totalVotess(): int
+    {
+        return $this->votes()
+            ->sum(DB::raw('CASE WHEN type = "upvote" THEN 1 ELSE -1 END'));
     }
 
     public function bookmarks(): MorphMany
@@ -134,6 +144,13 @@ class Topic extends Model
     {
         return Attribute::make(
             get: fn ($value) => Str::limit(strip_tags($value), 200),
+        );
+    }
+
+    protected function totalVotes(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->votes()->sum(DB::raw('CASE WHEN type = "upvote" THEN 1 ELSE -1 END')),
         );
     }
 

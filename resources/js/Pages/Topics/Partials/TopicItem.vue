@@ -18,7 +18,7 @@ const props = defineProps({
       </Link>
 
       <div class="flex items-center gap-3">
-        <small class="text-gray-700">{{ topic.votes_count }} votes</small>
+        <small class="text-gray-700">{{ topic.total_votes }} votes</small>
 
         <small class="text-gray-500">{{ topic.comments_count }} comments</small>
 

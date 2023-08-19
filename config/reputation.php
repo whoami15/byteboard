@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'upvote_value' => 10,
+    'upvote_value' => 7,
     'downvote_value' => 2,
-    'accepted_answer_value' => 25,
+    'accepted_answer_value' => 15,
 ];
