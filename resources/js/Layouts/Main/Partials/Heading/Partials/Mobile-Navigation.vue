@@ -21,14 +21,14 @@
       href="#"
       class="block border-l-4 py-2 pl-3 pr-4 text-base"
     >
-      Projects
+      Users
     </ResponsiveNavLink>
 
     <ResponsiveNavLink
       href="#"
       class="block border-l-4 py-2 pl-3 pr-4 text-base"
     >
-      Calendar
+      Groups
     </ResponsiveNavLink>
   </div>
 </template>

@@ -9,15 +9,18 @@ class TopicController extends Controller
 {
     public function index()
     {
+        $topics = Topic::query()
+            ->with([
+                'user:id,username,email,name,profile_photo_path,default_avatar',
+                'tags',
+            ])
+            ->withCount(['votes', 'comments'])
+            ->latest()
+            ->paginate(15)
+            ->onEachSide(1);
+
         return inertia()->render('Topics/Index', [
-            'topics' => Topic::query()
-                ->with([
-                    'user:id,username,email,name,profile_photo_path,default_avatar',
-                    'tags',
-                ])
-                ->withCount(['votes', 'comments'])
-                ->latest()
-                ->get(),
+            'topics' => $topics,
         ]);
     }
 

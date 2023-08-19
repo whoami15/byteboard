@@ -21,14 +21,14 @@
       href="#"
       class="inline-flex items-center border-b-2 px-1 pt-1 text-sm"
     >
-      Projects
+      Users
     </NavLink>
 
     <NavLink
       href="#"
       class="inline-flex items-center border-b-2 px-1 pt-1 text-sm"
     >
-      Calendar
+      Groups
     </NavLink>
   </div>
 </template>

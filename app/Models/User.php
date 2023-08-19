@@ -137,17 +137,6 @@ class User extends Authenticatable
         );
     }
 
-    // protected function defaultAvatar(): Attribute
-    // {
-    //     return Attribute::get(function () {
-    //         if ($this->default_avatar) {
-    //             return $this->default_avatar;
-    //         }
-
-    //         return "https://avatars.dicebear.com/api/{$this->username}.svg?background=%23ffffff";
-    //     });
-    // }
-
     protected function profilePhotoUrl(): Attribute
     {
         return Attribute::get(function () {
@@ -159,17 +148,7 @@ class User extends Authenticatable
                 return Vite::asset("resources/images/{$this->default_avatar}");
             }
 
-            $emailHash = urlencode($this->email);
-return
-  sprintf('https://api.dicebear.com/6.x/bottts-neutral/svg/seed=%s', $emailHash)
-;
-// return sprintf(
-//     'https://www.gravatar.com/avatar/%s?d=%s',
-//     $emailHash,
-//     $defaultImage
-//   );
-
-            // return "https://avatars.dicebear.com/api/{$this->username}.svg?background=%23ffffff";
+            return "https://api.dicebear.com/6.x/bottts-neutral/svg/seed=".urlencode($this->email);
         });
     }
 }

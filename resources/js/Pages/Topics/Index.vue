@@ -5,8 +5,8 @@ import { PlusIcon } from "@heroicons/vue/20/solid";
 
 const props = defineProps({
   topics: {
-    type: Array,
-    default: () => [],
+    type: Object,
+    default: () => ({}),
   },
 });
 </script>
@@ -46,8 +46,17 @@ const props = defineProps({
           </div>
         </div>
 
-        <div class="mt-6 divide-y border-x-0 border-y bg-white sm:border-x">
-          <TopicItem v-for="topic in topics" :key="topic.id" :topic="topic" />
+        <div
+          v-if="topics.data.length"
+          class="mt-6 divide-y border-x-0 border-y bg-white sm:border-x"
+        >
+          <TopicItem
+            v-for="topic in topics.data"
+            :key="topic.id"
+            :topic="topic"
+          />
+
+          <Pagination :data="topics" />
         </div>
       </div>
     </div>
