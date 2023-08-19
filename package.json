@@ -37,6 +37,7 @@
         "@vueuse/core": "^10.3.0",
         "dayjs": "^1.11.9",
         "laravel-precognition-vue-inertia": "^0.4.1",
+        "momentum-paginator": "^1.0.6",
         "query-string": "^8.1.0",
         "vue-toastification": "^2.0.0-rc.5"
     }
