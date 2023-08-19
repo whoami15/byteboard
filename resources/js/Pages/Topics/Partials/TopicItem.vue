@@ -41,7 +41,7 @@ const props = defineProps({
       <span
         v-for="tag in topic.tags"
         :key="tag.id"
-        class="mr-2 inline-flex items-center rounded-sm bg-blue-100 px-2 py-1 text-xs text-blue-800"
+        class="mr-2 inline-flex cursor-pointer items-center rounded-sm bg-blue-50 px-2 py-1 text-xs text-blue-700 hover:bg-blue-100 hover:text-blue-800"
       >
         {{ tag.name }}
       </span>

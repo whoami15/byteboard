@@ -90,12 +90,6 @@ class Topic extends Model
         return $this->morphMany(Vote::class, 'votable');
     }
 
-    public function totalVotess(): int
-    {
-        return $this->votes()
-            ->sum(DB::raw('CASE WHEN type = "upvote" THEN 1 ELSE -1 END'));
-    }
-
     public function bookmarks(): MorphMany
     {
         return $this->morphMany(Bookmark::class, 'bookmarkable');
