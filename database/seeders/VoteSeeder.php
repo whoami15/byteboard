@@ -8,23 +8,25 @@ class VoteSeeder extends Seeder
 {
     public function run(): void
     {
-        $users = \App\Models\User::inRandomOrder()->get();
-        $topics = \App\Models\Topic::inRandomOrder()->get();
-        $comments = \App\Models\Comment::inRandomOrder()->get();
+        $userIds = \App\Models\User::inRandomOrder()->pluck('id');
+        $topicIds = \App\Models\Topic::inRandomOrder()->pluck('id');
+        $commentIds = \App\Models\Comment::inRandomOrder()->pluck('id');
 
-        $users->each(function ($user) use ($topics, $comments) {
-            $topics->random(rand(20, 40))->each(function ($topic) use ($user) {
-                $user->votes()->save(\App\Models\Vote::factory()->create([
-                    'votable_id' => $topic->id,
+        $userIds->each(function ($userId) use ($topicIds, $commentIds) {
+            $topicIds->random(rand(20, 40))->each(function ($topicId) use ($userId) {
+                \App\Models\Vote::factory()->create([
+                    'user_id' => $userId,
+                    'votable_id' => $topicId,
                     'votable_type' => 'topic',
-                ]));
+                ]);
             });
 
-            $comments->random(rand(1, 3))->each(function ($comment) use ($user) {
-                $user->votes()->save(\App\Models\Vote::factory()->create([
-                    'votable_id' => $comment->id,
+            $commentIds->random(rand(1, 3))->each(function ($commentId) use ($userId) {
+                \App\Models\Vote::factory()->create([
+                    'user_id' => $userId,
+                    'votable_id' => $commentId,
                     'votable_type' => 'comment',
-                ]));
+                ]);
             });
         });
     }

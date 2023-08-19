@@ -20,13 +20,9 @@ const props = defineProps({
     </template>
 
     <div class="py-4">
-      <div class="mx-auto max-w-4xl sm:px-6 lg:px-8">
-        <div class="relative mt-0 px-5 sm:mt-6 sm:px-0">
-          <div class="absolute inset-0 flex items-center" aria-hidden="true">
-            <div class="w-full border-t border-gray-200" />
-          </div>
-
-          <div class="relative flex items-center justify-between">
+      <div class="mx-auto max-w-3xl sm:px-6 lg:px-8">
+        <div class="mt-0 px-5 sm:mt-6 sm:px-0">
+          <div class="flex items-center justify-between">
             <span
               class="bg-white pr-3 text-2xl font-medium leading-6 text-gray-900"
               >All Topics</span
