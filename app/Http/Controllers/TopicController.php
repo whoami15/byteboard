@@ -55,7 +55,7 @@ class TopicController extends Controller
                     'user:id,username,email,name,profile_photo_path,default_avatar',
                 ],
             ],
-        ]);
+        ])->loadCount(['answers']);
 
         return inertia()->render('Topics/Show', [
             'topic' => new TopicResource($topic),
