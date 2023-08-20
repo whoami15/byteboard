@@ -39,8 +39,8 @@ use Illuminate\Support\Facades\Vite;
  * @property-read int|null $bookmarks_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Answer> $answers
  * @property-read int|null $answers_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Reply> $replies
- * @property-read int|null $replies_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comment
+ * @property-read int|null $comment_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Reputation> $reputations
  * @property-read int|null $reputations_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Topic> $topics
@@ -102,9 +102,9 @@ class User extends Authenticatable
         return $this->hasMany(Answer::class);
     }
 
-    public function replies(): HasMany
+    public function comments(): HasMany
     {
-        return $this->hasMany(Reply::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function votes(): HasMany

@@ -22,8 +22,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Bookmark> $bookmarks
  * @property-read int|null $bookmarks_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Reply> $replies
- * @property-read int|null $replies_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read int|null $comments_count
  * @property-read \App\Models\Topic|null $topic
  * @property-read \App\Models\User|null $user
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $votes
@@ -76,8 +76,8 @@ class Answer extends Model
         return $this->belongsTo(Topic::class);
     }
 
-    public function replies(): HasMany
+    public function comments(): HasMany
     {
-        return $this->hasMany(Reply::class);
+        return $this->hasMany(Comment::class);
     }
 }

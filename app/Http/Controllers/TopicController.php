@@ -48,7 +48,7 @@ class TopicController extends Controller
             'tags',
             'answers' => [
                 'user:id,username,email,name,profile_photo_path,default_avatar',
-                'replies' => [
+                'comments' => [
                     'user:id,username,email,name,profile_photo_path,default_avatar',
                 ],
             ],

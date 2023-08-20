@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Answer;
-use App\Models\Reply;
+use App\Models\Comment;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             'user' => User::class,
             'topic' => Topic::class,
             'answer' => Answer::class,
-            'reply' => Reply::class,
+            'comment' => Comment::class,
         ]);
     }
 }
