@@ -1,7 +1,6 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
 import TopicItem from "./Partials/TopicItem.vue";
-import { PlusIcon } from "@heroicons/vue/20/solid";
 
 const props = defineProps({
   topics: {
@@ -21,23 +20,17 @@ const props = defineProps({
 
     <div class="py-4">
       <div class="mx-auto max-w-3xl sm:px-6 lg:px-8">
-        <div class="mt-0 px-5 sm:mt-6 sm:px-0">
+        <div class="mt-0 px-2 md:px-5 sm:mt-6 sm:px-0">
           <div class="flex items-center justify-between">
-            <span
-              class="bg-white pr-3 text-2xl font-medium leading-6 text-gray-900"
-              >All Topics</span
-            >
+            <span class="bg-white pr-3 text-2xl leading-6 text-gray-900">
+              All Topics
+            </span>
 
             <button
               type="button"
               class="inline-flex items-center gap-x-1.5 rounded-sm bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-600"
             >
-              <PlusIcon
-                class="-ml-1 -mr-0.5 h-5 w-5 text-white"
-                aria-hidden="true"
-              />
-
-              <span>Post Topic</span>
+              Post Topic
             </button>
           </div>
         </div>

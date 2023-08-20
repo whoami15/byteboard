@@ -16,7 +16,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
   >
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
       <div class="flex h-16 justify-between">
-        <div class="flex px-2 lg:px-0">
+        <div class="flex pl-0 pr-2 lg:pl-2">
           <div class="flex shrink-0 items-center">
             <ApplicationLogo class="h-8 w-auto" />
           </div>

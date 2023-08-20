@@ -30,7 +30,7 @@ const { pages, previous, next } = usePaginator(props.data);
       <Component
         :is="previous.isActive ? Link : 'span'"
         :href="previous.url"
-        class="inline-flex items-center gap-3 py-3 text-sm font-bold transition"
+        class="inline-flex items-center gap-3 py-3 text-sm font-medium transition"
         :class="[
           previous.isActive
             ? 'text-gray-500 hover:text-black'
@@ -53,7 +53,7 @@ const { pages, previous, next } = usePaginator(props.data);
 
           <Link
             :href="page.url"
-            class="block px-4 py-3 text-sm font-bold transition"
+            class="block px-4 py-3 text-sm transition"
             :class="[
               page.isCurrent ? 'text-black' : 'text-gray-500 hover:text-black',
             ]"
@@ -61,7 +61,7 @@ const { pages, previous, next } = usePaginator(props.data);
           >
         </div>
 
-        <div v-else class="px-3.5 py-3 text-sm font-bold text-gray-500">
+        <div v-else class="px-3.5 py-3 text-sm font-medium text-gray-500">
           ...
         </div>
       </div>
@@ -76,7 +76,7 @@ const { pages, previous, next } = usePaginator(props.data);
       <Component
         :is="next.isActive ? Link : 'span'"
         :href="next.url"
-        class="inline-flex items-center gap-3 py-3 text-sm font-bold transition"
+        class="inline-flex items-center gap-3 py-3 text-sm font-medium transition"
         :class="[
           next.isActive
             ? 'text-gray-500 hover:text-black'

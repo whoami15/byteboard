@@ -146,7 +146,7 @@ class Topic extends Model
     protected function excerpt(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => Str::limit(strip_tags($value), 200),
+            get: fn (string $value) => Str::limit(strip_tags($value), 200),
         );
     }
 

@@ -16,7 +16,7 @@ class AnswerResource extends JsonResource
             'total_votes' => $this->total_votes,
             'user' => new UserResource($this->whenLoaded('user')),
             'comments' => CommentResource::collection($this->whenLoaded('comments')),
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
         ];
     }
 }

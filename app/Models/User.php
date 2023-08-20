@@ -134,8 +134,8 @@ class User extends Authenticatable
     protected function name(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => ucwords($value),
-            set: fn ($value) => strtolower($value),
+            get: fn (string $value) => ucwords($value),
+            set: fn (string $value) => strtolower($value),
         );
     }
 

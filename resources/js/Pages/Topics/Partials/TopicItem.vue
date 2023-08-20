@@ -12,26 +12,26 @@ const props = defineProps({
     <div class="flex items-center justify-between">
       <Link
         :href="route('topics.show', [topic, topic.slug])"
-        class="hyphens-auto break-words text-lg leading-tight text-blue-500 hover:text-blue-600"
+        class="text-lg hyphens-auto break-words leading-tight text-blue-500 hover:text-blue-600"
       >
         {{ topic.title }}
       </Link>
 
       <div class="ml-2 flex items-center gap-3">
-        <small class="text-gray-700">
+        <span class="text-xs text-gray-700">
           {{ topic.total_votes }}
           {{ pluralize(topic.total_votes, "vote") }}
-        </small>
+        </span>
 
-        <small class="text-gray-500">
+        <span class="text-xs text-gray-500">
           {{ topic.answers_count }}
           {{ pluralize(topic.answers_count, "answer") }}
-        </small>
+        </span>
 
-        <small class="text-gray-500">
+        <span class="text-xs text-gray-500">
           {{ topic.views }}
           {{ pluralize(topic.views, "view") }}
-        </small>
+        </span>
       </div>
     </div>
 

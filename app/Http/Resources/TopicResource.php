@@ -13,6 +13,7 @@ class TopicResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
+            'body' => $this->body,
             'excerpt' => $this->excerpt,
             'total_votes' => $this->total_votes,
             'answers_count' => $this->answers_count,
@@ -21,7 +22,7 @@ class TopicResource extends JsonResource
             'comments' => CommentResource::collection($this->whenLoaded('comments')),
             'answers' => AnswerResource::collection($this->whenLoaded('answers')),
             'tags' => TagResource::collection($this->whenLoaded('tags')),
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
         ];
     }
 }
