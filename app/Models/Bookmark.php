@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read Model|Eloquent $bookmarkable
  * @property-read \App\Models\User|null $user
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Bookmark newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Bookmark newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Bookmark query()
@@ -26,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Bookmark whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Bookmark whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Bookmark whereUserId($value)
+ *
  * @mixin Eloquent
  * @mixin \Eloquent
  */

@@ -39,6 +39,7 @@ use Illuminate\Support\Str;
  * @property-read \App\Models\User|null $user
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $votes
  * @property-read int|null $votes_count
+ *
  * @method static \Database\Factories\TopicFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Topic findSimilarSlugs(string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|Topic newModelQuery()
@@ -57,8 +58,11 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder|Topic withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Topic withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|Topic withoutTrashed()
+ *
  * @property string $excerpt
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Topic whereExcerpt($value)
+ *
  * @mixin \Eloquent
  */
 class Topic extends Model
@@ -116,6 +120,11 @@ class Topic extends Model
     public function answers(): HasMany
     {
         return $this->hasMany(Answer::class);
+    }
+
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     public function topicViews(): HasMany

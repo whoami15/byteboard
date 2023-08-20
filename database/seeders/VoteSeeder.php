@@ -16,16 +16,16 @@ class VoteSeeder extends Seeder
             $topicIds->random(rand(20, 40))->each(function ($topicId) use ($userId) {
                 \App\Models\Vote::factory()->create([
                     'user_id' => $userId,
-                    'votable_id' => $topicId,
                     'votable_type' => 'topic',
+                    'votable_id' => $topicId,
                 ]);
             });
 
             $answerIds->random(rand(1, 3))->each(function ($answerId) use ($userId) {
                 \App\Models\Vote::factory()->create([
                     'user_id' => $userId,
-                    'votable_id' => $answerId,
                     'votable_type' => 'answer',
+                    'votable_id' => $answerId,
                 ]);
             });
         });

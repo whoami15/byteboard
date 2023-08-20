@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \App\Models\User|null $user
  * @property-read Model|Eloquent $votable
+ *
  * @method static \Database\Factories\VoteFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Vote newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vote newQuery()
@@ -34,9 +35,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Vote whereVotableType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Vote withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Vote withoutTrashed()
+ *
  * @mixin Eloquent
+ *
  * @property string $type
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Vote whereType($value)
+ *
  * @mixin \Eloquent
  */
 class Vote extends Model
