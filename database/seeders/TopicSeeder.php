@@ -10,7 +10,7 @@ class TopicSeeder extends Seeder
     {
         $users = \App\Models\User::inRandomOrder()->get();
 
-        $users->each(function ( $user) {
+        $users->each(function ($user) {
             $user->topics()->saveMany(\App\Models\Topic::factory()->count(random_int(1, 2))->make());
         });
     }

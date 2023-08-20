@@ -12,12 +12,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property int $id
  * @property int|null $user_id
- * @property int|null $comment_id
+ * @property int|null $answer_id
  * @property string $body
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\Comment|null $comment
+ * @property-read \App\Models\Answer|null $answer
  * @property-read \App\Models\User|null $user
  *
  * @method static \Database\Factories\ReplyFactory factory($count = null, $state = [])
@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Reply onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Reply query()
  * @method static \Illuminate\Database\Eloquent\Builder|Reply whereBody($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Reply whereCommentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Reply whereAnswerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reply whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reply whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reply whereId($value)
@@ -34,6 +34,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Reply whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reply withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Reply withoutTrashed()
+ *
+ * @property int|null $comment_id
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Reply whereCommentId($value)
  *
  * @mixin \Eloquent
  */
@@ -43,7 +47,7 @@ class Reply extends Model
 
     protected $casts = [
         'user_id' => 'integer',
-        'comment_id' => 'integer',
+        'answer_id' => 'integer',
     ];
 
     public function user(): BelongsTo
@@ -51,8 +55,8 @@ class Reply extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function comment(): BelongsTo
+    public function answer(): BelongsTo
     {
-        return $this->belongsTo(Comment::class);
+        return $this->belongsTo(Answer::class);
     }
 }

@@ -37,8 +37,8 @@ use Illuminate\Support\Facades\Vite;
  * @property-read int|null $badges_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Bookmark> $bookmarks
  * @property-read int|null $bookmarks_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
- * @property-read int|null $comments_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Answer> $answers
+ * @property-read int|null $answers_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Reply> $replies
  * @property-read int|null $replies_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Reputation> $reputations
@@ -97,9 +97,9 @@ class User extends Authenticatable
         return $this->hasMany(Topic::class);
     }
 
-    public function comments(): HasMany
+    public function answers(): HasMany
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Answer::class);
     }
 
     public function replies(): HasMany
@@ -148,7 +148,7 @@ class User extends Authenticatable
                 return Vite::asset("resources/images/{$this->default_avatar}");
             }
 
-            return "https://api.dicebear.com/6.x/bottts-neutral/svg/seed=".urlencode($this->email);
+            return 'https://api.dicebear.com/6.x/bottts-neutral/svg/seed='.urlencode($this->email);
         });
     }
 }

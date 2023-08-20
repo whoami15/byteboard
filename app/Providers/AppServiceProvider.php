@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Comment;
+use App\Models\Answer;
 use App\Models\Reply;
 use App\Models\Topic;
 use App\Models\User;
@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         Relation::enforceMorphMap([
             'user' => User::class,
             'topic' => Topic::class,
-            'comment' => Comment::class,
+            'answer' => Answer::class,
             'reply' => Reply::class,
         ]);
     }

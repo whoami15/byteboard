@@ -10,9 +10,9 @@ class VoteSeeder extends Seeder
     {
         $userIds = \App\Models\User::inRandomOrder()->pluck('id');
         $topicIds = \App\Models\Topic::inRandomOrder()->pluck('id');
-        $commentIds = \App\Models\Comment::inRandomOrder()->pluck('id');
+        $answerIds = \App\Models\Answer::inRandomOrder()->pluck('id');
 
-        $userIds->each(function ($userId) use ($topicIds, $commentIds) {
+        $userIds->each(function ($userId) use ($topicIds, $answerIds) {
             $topicIds->random(rand(20, 40))->each(function ($topicId) use ($userId) {
                 \App\Models\Vote::factory()->create([
                     'user_id' => $userId,
@@ -21,11 +21,11 @@ class VoteSeeder extends Seeder
                 ]);
             });
 
-            $commentIds->random(rand(1, 3))->each(function ($commentId) use ($userId) {
+            $answerIds->random(rand(1, 3))->each(function ($answerId) use ($userId) {
                 \App\Models\Vote::factory()->create([
                     'user_id' => $userId,
-                    'votable_id' => $commentId,
-                    'votable_type' => 'comment',
+                    'votable_id' => $answerId,
+                    'votable_type' => 'answer',
                 ]);
             });
         });

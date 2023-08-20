@@ -24,8 +24,8 @@ const props = defineProps({
         </small>
 
         <small class="text-gray-500">
-          {{ topic.comments_count }}
-          {{ pluralize(topic.comments_count, "comment") }}
+          {{ topic.answers_count }}
+          {{ pluralize(topic.answers_count, "answer") }}
         </small>
 
         <small class="text-gray-500">

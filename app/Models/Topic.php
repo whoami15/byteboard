@@ -29,9 +29,9 @@ use Illuminate\Support\Str;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Bookmark> $bookmarks
  * @property-read int|null $bookmarks_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
- * @property-read int|null $comments_count
- * @property-read \App\Models\Vote|null $popularComment
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Answer> $answers
+ * @property-read int|null $answers_count
+ * @property-read \App\Models\Vote|null $popularAnswer
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Tag> $tags
  * @property-read int|null $tags_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\TopicView> $topicViews
@@ -58,6 +58,10 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder|Topic withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Topic withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|Topic withoutTrashed()
+ *
+ * @property string $excerpt
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Topic whereExcerpt($value)
  *
  * @mixin \Eloquent
  */
@@ -96,9 +100,9 @@ class Topic extends Model
     }
 
     /**
-     * Get the topic's most popular comment.
+     * Get the topic's most popular answer.
      */
-    public function popularComment(): MorphOne
+    public function popularAnswer(): MorphOne
     {
         return $this->morphOne(Vote::class, 'votable')->ofMany('votes', 'max');
     }
@@ -113,9 +117,9 @@ class Topic extends Model
         return $this->belongsToMany(Tag::class)->using(TagTopic::class);
     }
 
-    public function comments(): HasMany
+    public function answers(): HasMany
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Answer::class);
     }
 
     public function topicViews(): HasMany

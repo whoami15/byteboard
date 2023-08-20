@@ -37,6 +37,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Vote withoutTrashed()
  *
  * @mixin Eloquent
+ *
+ * @property string $type
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote whereType($value)
+ *
  * @mixin \Eloquent
  */
 class Vote extends Model

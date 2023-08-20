@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * App\Models\Comment
+ * App\Models\Answer
  *
  * @property int $id
  * @property int|null $user_id
@@ -29,25 +29,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $votes
  * @property-read int|null $votes_count
  *
- * @method static \Database\Factories\CommentFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Comment newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Comment newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Comment onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Comment query()
- * @method static \Illuminate\Database\Eloquent\Builder|Comment whereAcceptedAnswer($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Comment whereBody($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Comment whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Comment whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Comment whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Comment whereTopicId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Comment whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Comment whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Comment withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Comment withoutTrashed()
+ * @method static \Database\Factories\AnswerFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereAcceptedAnswer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereTopicId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Answer withoutTrashed()
  *
  * @mixin \Eloquent
  */
-class Comment extends Model
+class Answer extends Model
 {
     use HasFactory, SoftDeletes;
 

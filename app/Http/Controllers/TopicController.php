@@ -15,7 +15,7 @@ class TopicController extends Controller
                 'user:id,username,email,name,profile_photo_path,default_avatar',
                 'tags',
             ])
-            ->withCount(['comments'])
+            ->withCount(['answers'])
             ->latest()
             ->paginate(15)
             ->onEachSide(1);
@@ -46,7 +46,7 @@ class TopicController extends Controller
         $topic->load([
             'user:id,username,email,name,profile_photo_path,default_avatar',
             'tags',
-            'comments' => [
+            'answers' => [
                 'user:id,username,email,name,profile_photo_path,default_avatar',
                 'replies' => [
                     'user:id,username,email,name,profile_photo_path,default_avatar',

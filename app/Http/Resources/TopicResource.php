@@ -2,8 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Http\Resources\TagResource;
-use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,7 +15,7 @@ class TopicResource extends JsonResource
             'slug' => $this->slug,
             'excerpt' => $this->excerpt,
             'total_votes' => $this->total_votes,
-            'comments_count' => $this->comments_count,
+            'answers_count' => $this->answers_count,
             'views' => $this->views,
             'user' => new UserResource($this->whenLoaded('user')),
             'tags' => TagResource::collection($this->whenLoaded('tags')),

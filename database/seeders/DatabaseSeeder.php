@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TagSeeder::class,
             TopicSeeder::class,
-            CommentSeeder::class,
+            AnswerSeeder::class,
             ReplySeeder::class,
             VoteSeeder::class,
         ]);
