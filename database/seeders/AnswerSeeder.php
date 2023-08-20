@@ -20,7 +20,7 @@ class AnswerSeeder extends Seeder
             $randomAnswer->update(['accepted_answer' => true]);
 
             // Attach tags to the topic
-            $tags = \App\Models\Tag::inRandomOrder()->take(random_int(4, 7))->pluck('id');
+            $tags = \App\Models\Tag::inRandomOrder()->take(random_int(1, 7))->pluck('id');
             $topic->tags()->attach($tags);
         });
     }
