@@ -46,6 +46,9 @@ class TopicController extends Controller
         $topic->load([
             'user:id,username,email,name,profile_photo_path,default_avatar',
             'tags',
+            'comments' => [
+                'user:id,username,email,name,profile_photo_path,default_avatar',
+            ],
             'answers' => [
                 'user:id,username,email,name,profile_photo_path,default_avatar',
                 'comments' => [
@@ -55,7 +58,7 @@ class TopicController extends Controller
         ]);
 
         return inertia()->render('Topics/Show', [
-            'topic' => $topic,
+            'topic' => new TopicResource($topic),
         ]);
     }
 
