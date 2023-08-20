@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Models\User|null $user
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $votes
  * @property-read int|null $votes_count
- *
  * @method static \Database\Factories\AnswerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Answer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Answer newQuery()
@@ -44,7 +43,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Answer whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Answer withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Answer withoutTrashed()
- *
  * @mixin \Eloquent
  */
 class Answer extends Model

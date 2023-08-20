@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
  * @property-read int|null $users_count
- *
  * @method static \Database\Factories\BadgeFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Badge newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Badge newQuery()
@@ -27,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Badge whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Badge whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Badge whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class Badge extends Model
