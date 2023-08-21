@@ -23,6 +23,7 @@ class TopicResource extends JsonResource
             'answers' => AnswerResource::collection($this->whenLoaded('answers')),
             'tags' => TagResource::collection($this->whenLoaded('tags')),
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
+            'updated_at' => $this->created_at->format('Y-m-d H:i:s'),
         ];
     }
 }

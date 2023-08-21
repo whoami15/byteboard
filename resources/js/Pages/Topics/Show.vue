@@ -37,10 +37,10 @@ const props = defineProps({
             </button>
           </div>
 
-          <div class="mt-3 flex border-b border-b-zinc-200 pb-5">
+          <div class="mt-3 flex border-b border-b-zinc-200 pb-5 text-zinc-800">
             <div
-              class="mr-4 flex text-xs leading-none text-zinc-800"
-              :title="formatLocalTimestampToUtcWithZ(props.topic.created_at)"
+              class="mr-4 flex text-xs leading-none"
+              :title="formatLocalTimestampToUtc(props.topic.created_at)"
             >
               <span class="mr-1 text-gray-500">Posted</span>
 
@@ -54,20 +54,18 @@ const props = defineProps({
               </time>
             </div>
 
-            <div class="mr-4 flex text-xs leading-none text-zinc-700">
+            <div
+              class="mr-4 flex text-xs leading-none"
+              :title="formatLocalTimestampToUtc(props.topic.updated_at)"
+            >
               <span class="mr-1 text-gray-500">Modified</span>
 
-              <time
-                itemprop="dateCreated"
-                :datetime="
-                  formateDate(props.topic.created_at, 'YYYY-MM-DDTHH:mm:ss')
-                "
-              >
-                {{ fromNow(props.topic.created_at) }}
-              </time>
+              <span>
+                {{ fromNow(props.topic.updated_at) }}
+              </span>
             </div>
 
-            <div class="mr-4 flex text-xs leading-none text-zinc-700">
+            <div class="mr-4 flex text-xs leading-none">
               <span class="mr-1 text-gray-500">Viewed</span>
 
               <span>{{ props.topic.views }} times</span>

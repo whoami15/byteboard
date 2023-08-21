@@ -8,7 +8,7 @@ dayjs.extend(timezone);
 /**
  * Formats a local timestamp to UTC format with 'Z' at the end to indicate UTC.
  */
-export const formatLocalTimestampToUtcWithZ = (timestamp) => {
+export const formatLocalTimestampToUtc = (timestamp) => {
   return dayjs(timestamp)
     .tz("Asia/Manila")
     .utc()
