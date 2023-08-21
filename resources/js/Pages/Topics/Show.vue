@@ -1,5 +1,7 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
+import { ChevronUpIcon } from "@heroicons/vue/24/outline";
+import { ChevronDownIcon } from "@heroicons/vue/24/outline";
 
 const props = defineProps({
   topic: {
@@ -21,7 +23,7 @@ const props = defineProps({
 
     <div class="py-4">
       <div class="mx-auto max-w-3xl sm:px-6 lg:px-8">
-        <div class="mt-0 px-2 sm:mt-6 sm:px-0 md:px-5">
+        <div class="mt-0 px-2 sm:mt-6 md:px-5">
           <div class="flex flex-col justify-between sm:flex-row">
             <span
               class="flex-1 break-words bg-white pr-0 text-2xl font-normal leading-7 text-zinc-700 sm:pr-3"
@@ -73,19 +75,43 @@ const props = defineProps({
           </div>
 
           <div class="mt-4">
-            <div class="prose break-words text-zinc-800">
-              <p>{{ props.topic.body }}</p>
-            </div>
-          </div>
+            <div class="mb-2 flex flex-row items-start justify-between">
+              <div class="flex flex-col items-center pr-4">
+                <button
+                  type="button"
+                  class="rounded-full border p-2 text-gray-700 hover:bg-green-100"
+                >
+                  <ChevronUpIcon class="h-6 w-6" />
+                </button>
 
-          <div class="mt-6">
-            <span
-              v-for="tag in props.topic.tags"
-              :key="tag.id"
-              class="mr-2 inline-flex cursor-pointer items-center rounded-sm bg-blue-50 px-2 py-1 text-xs text-blue-700 hover:bg-blue-100 hover:text-blue-800"
-            >
-              {{ tag.name }}
-            </span>
+                <span class="py-2 text-xl font-medium text-gray-900">
+                  {{ props.topic.total_votes }}
+                </span>
+
+                <button
+                  type="button"
+                  class="rounded-full border p-2 text-gray-700 hover:bg-gray-100"
+                >
+                  <ChevronDownIcon class="h-6 w-6" />
+                </button>
+              </div>
+
+              <div>
+                <div class="prose break-words text-zinc-800">
+                  {{ props.topic.body }}
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-1">
+                  <span
+                    v-for="tag in props.topic.tags"
+                    :key="tag.id"
+                    class="mr-1 inline-flex cursor-pointer items-center rounded-sm bg-blue-50 px-2 py-1 text-xs text-blue-700 hover:bg-blue-100 hover:text-blue-800"
+                  >
+                    {{ tag.name }}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
