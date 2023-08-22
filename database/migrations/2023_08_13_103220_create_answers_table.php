@@ -22,6 +22,7 @@ return new class extends Migration
                 ->nullOnDelete();
             $table->text('body');
             $table->boolean('accepted_answer')->default(false);
+            $table->integer('total_votes')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

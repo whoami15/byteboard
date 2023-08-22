@@ -55,6 +55,8 @@ class Answer extends Model
     protected $casts = [
         'user_id' => 'integer',
         'topic_id' => 'integer',
+        'accepted_answer' => 'boolean',
+        'total_votes'=> 'integer',
     ];
 
     protected $appends = [

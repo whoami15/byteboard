@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('body');
-            $table->string('excerpt');
-            $table->unsignedBigInteger('views');
+            $table->text('excerpt');
+            $table->integer('total_votes')->default(0);
+            $table->unsignedBigInteger('views')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -72,7 +72,7 @@ class Topic extends Model
     protected $casts = [
         'user_id' => 'integer',
         'views' => 'integer',
-        'accepted_answer' => 'boolean',
+        'total_votes'=> 'integer',
     ];
 
     protected $appends = [
@@ -147,13 +147,6 @@ class Topic extends Model
     {
         return Attribute::make(
             get: fn (string $value) => Str::limit(strip_tags($value), 200),
-        );
-    }
-
-    protected function totalVotes(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->votes()->sum(DB::raw('CASE WHEN type = "upvote" THEN 1 ELSE -1 END')),
         );
     }
 

@@ -15,7 +15,7 @@ class TopicFactory extends Factory
             'slug' => $this->faker->slug,
             'title' => $this->faker->sentence,
             'body' => $this->faker->paragraphs($this->faker->numberBetween(5, 10), true),
-            'excerpt' => $this->faker->sentence(),
+            'excerpt' => $this->faker->paragraphs($this->faker->numberBetween(1, 2), true),
             'views' => $this->faker->numberBetween(0, 1000),
         ];
     }

@@ -12,7 +12,7 @@ const props = defineProps({
     <div class="flex flex-col items-center justify-between sm:flex-row">
       <Link
         :href="route('topics.show', [topic, topic.slug])"
-        class="text-lg flex-1 self-start hyphens-auto break-words leading-tight text-blue-500 hover:text-blue-600"
+        class="flex-1 self-start hyphens-auto break-words text-lg leading-tight text-blue-500 hover:text-blue-600"
       >
         {{ topic.title }}
       </Link>
