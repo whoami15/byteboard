@@ -48,7 +48,7 @@ class Comment extends Model
 
     protected $casts = [
         'user_id' => 'integer',
-        'answer_id' => 'integer',
+        'commentable_id' => 'integer',
     ];
 
     public function commentable(): MorphTo
@@ -59,10 +59,5 @@ class Comment extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function answer(): BelongsTo
-    {
-        return $this->belongsTo(Answer::class);
     }
 }

@@ -57,6 +57,8 @@ class TopicController extends Controller
             ],
         ])->loadCount(['answers']);
 
+        // dd($topic->toArray());
+
         return inertia()->render('Topics/Show', [
             'topic' => new TopicResource($topic),
         ]);

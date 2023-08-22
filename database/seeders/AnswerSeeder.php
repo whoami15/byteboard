@@ -8,20 +8,23 @@ class AnswerSeeder extends Seeder
 {
     public function run(): void
     {
-        $topics = \App\Models\Topic::inRandomOrder()->get();
+        $userIds = \App\Models\User::inRandomOrder()->pluck('id');
+        $topicIds = \App\Models\Topic::inRandomOrder()->pluck('id');
 
-        $topics->each(function ($topic) {
-            $answers = \App\Models\Answer::factory()->count(random_int(4, 7))->create([
-                'topic_id' => $topic->id,
-            ]);
+        $topicIds->each(function ($topicId) use ($userIds) {
+            $answerCount = random_int(2, 7);
+
+            for ($i = 0; $i < $answerCount; $i++) {
+                \App\Models\Answer::factory()->create([
+                    'user_id' => $userIds->random(),
+                    'topic_id' => $topicId,
+                ]);
+            }
 
             // Randomly accept an answer
-            $randomAnswer = $answers->random();
-            $randomAnswer->update(['accepted_answer' => true]);
+            $randomAnswer = \App\Models\Answer::where('topic_id', $topicId)->first();
 
-            // Attach tags to the topic
-            $tags = \App\Models\Tag::inRandomOrder()->take(random_int(1, 7))->pluck('id');
-            $topic->tags()->attach($tags);
+            $randomAnswer->update(['accepted_answer' => true]);
         });
     }
 }

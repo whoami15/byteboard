@@ -13,21 +13,25 @@ class CommentSeeder extends Seeder
 
         $topicIds->each(function ($topicId) use ($userIds) {
             // Add comments to the topic
-            \App\Models\Comment::factory()->count(rand(1, 3))->create([
-                'user_id' => $userIds->random(),
-                'commentable_type' => 'topic',
-                'commentable_id' => $topicId,
-            ]);
+            for ($i = 0; $i < random_int(1, 3); $i++) {
+                \App\Models\Comment::factory()->create([
+                    'user_id' => $userIds->random(),
+                    'commentable_type' => 'topic',
+                    'commentable_id' => $topicId,
+                ]);
+            }
 
-            // Add comments to random answers on the topic
             $answerIds = \App\Models\Answer::where('topic_id', $topicId)->pluck('id');
 
-            $answerIds->random(rand(2, 4))->each(function ($answerId) use ($userIds) {
-                \App\Models\Comment::factory()->count(rand(1, 3))->create([
-                    'user_id' => $userIds->random(),
-                    'commentable_type' => 'answer',
-                    'commentable_id' => $answerId,
-                ]);
+            $answerIds->each(function ($answerId) use ($userIds) {
+                // Add comments to random answers on the topic
+                for ($i = 0; $i < random_int(3, 5); $i++) {
+                    \App\Models\Comment::factory()->create([
+                        'user_id' => $userIds->random(),
+                        'commentable_type' => 'answer',
+                        'commentable_id' => $answerId,
+                    ]);
+                }
             });
         });
     }

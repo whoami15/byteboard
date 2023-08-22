@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->count(40)->create();
 
         $this->call([
-            TagSeeder::class,
             TopicSeeder::class,
             AnswerSeeder::class,
             CommentSeeder::class,
             VoteSeeder::class,
+            TagSeeder::class,
         ]);
     }
 }

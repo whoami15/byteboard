@@ -1,6 +1,7 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
 import TopicAction from "./Partials/TopicAction.vue";
+import CommentTree from "./Partials/CommentTree.vue";
 
 const props = defineProps({
   topic: {
@@ -60,7 +61,10 @@ const castVote = (type) => {
               <time
                 itemprop="dateCreated"
                 :datetime="
-                  formateDate(props.topic.created_at, 'YYYY-MM-DDTHH:mm:ss')
+                  formatToRelative(
+                    props.topic.created_at,
+                    'YYYY-MM-DDTHH:mm:ss',
+                  )
                 "
               >
                 {{ fromNow(props.topic.created_at) }}
@@ -86,7 +90,7 @@ const castVote = (type) => {
           </div>
 
           <div class="mt-4">
-            <div class="mb-2 flex flex-row items-start justify-between">
+            <div class="flex flex-row items-start justify-between pr-4">
               <TopicAction :data="topic" @vote-casted="castVote" />
 
               <div>
@@ -102,6 +106,18 @@ const castVote = (type) => {
                   >
                     {{ tag.name }}
                   </span>
+                </div>
+
+                <CommentTree :comments="props.topic.comments" />
+
+                <div
+                  v-for="answer in props.topic.answers"
+                  :key="answer.id"
+                  class="mt-6"
+                >
+                  <div class="answer">{{ answer.body }}</div>
+
+                  <CommentTree :comments="answer.comments" />
                 </div>
               </div>
             </div>
