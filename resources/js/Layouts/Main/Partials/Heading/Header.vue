@@ -68,7 +68,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 
             <Link
               :href="route('register')"
-              class="ml-2 inline-flex items-center rounded-sm bg-blue-400 px-3 py-2 text-sm text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              class="ml-2 inline-flex items-center rounded-sm bg-blue-500 px-3 py-2 text-sm text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               Sign up
             </Link>
@@ -96,7 +96,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 
             <Link
               :href="route('login')"
-              class="relative ml-auto shrink-0 rounded-sm bg-blue-400 px-3 py-2 text-sm text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              class="relative ml-auto shrink-0 rounded-sm bg-blue-500 px-3 py-2 text-sm text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               Sign up
             </Link>

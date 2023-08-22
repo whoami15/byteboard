@@ -1,7 +1,6 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
-import { ChevronUpIcon } from "@heroicons/vue/24/outline";
-import { ChevronDownIcon } from "@heroicons/vue/24/outline";
+import TopicActions from "./Partials/TopicActions.vue";
 
 const props = defineProps({
   topic: {
@@ -9,6 +8,13 @@ const props = defineProps({
     default: () => ({}),
   },
 });
+
+const castVote = (type) => {
+  router.post(route("topics.vote", [props.topic, props.topic.slug]), {
+    type: type,
+    preserveScroll: true,
+  });
+};
 </script>
 
 <template>
@@ -76,25 +82,7 @@ const props = defineProps({
 
           <div class="mt-4">
             <div class="mb-2 flex flex-row items-start justify-between">
-              <div class="flex flex-col items-center pr-4">
-                <button
-                  type="button"
-                  class="rounded-full border p-2 text-gray-700 hover:bg-green-100"
-                >
-                  <ChevronUpIcon class="h-6 w-6" />
-                </button>
-
-                <span class="py-2 text-xl font-medium text-gray-900">
-                  {{ props.topic.total_votes }}
-                </span>
-
-                <button
-                  type="button"
-                  class="rounded-full border p-2 text-gray-700 hover:bg-gray-100"
-                >
-                  <ChevronDownIcon class="h-6 w-6" />
-                </button>
-              </div>
+              <TopicActions :data="topic" @vote-casted="castVote" />
 
               <div>
                 <div class="prose break-words text-zinc-800">
