@@ -109,16 +109,20 @@ const castVote = (type) => {
                 </div>
 
                 <CommentTree :comments="props.topic.comments" />
+              </div>
+            </div>
 
-                <div
-                  v-for="answer in props.topic.answers"
-                  :key="answer.id"
-                  class="mt-6"
-                >
-                  <div class="answer">{{ answer.body }}</div>
+            <div
+              v-for="answer in props.topic.answers"
+              :key="answer.id"
+              class="my-6 flex flex-row items-start justify-between border-t border-t-gray-200 pr-4 pt-4"
+            >
+              <TopicAction :data="answer" @vote-casted="castVote" />
 
-                  <CommentTree :comments="answer.comments" />
-                </div>
+              <div>
+                <div class="answer">{{ answer.body }}</div>
+
+                <CommentTree :comments="answer.comments" />
               </div>
             </div>
           </div>
