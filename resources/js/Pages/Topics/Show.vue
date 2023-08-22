@@ -10,10 +10,15 @@ const props = defineProps({
 });
 
 const castVote = (type) => {
-  router.post(route("topics.vote", [props.topic, props.topic.slug]), {
-    type: type,
-    preserveScroll: true,
-  });
+  router.post(
+    route("topics.vote", [props.topic, props.topic.slug]),
+    {
+      type: type,
+    },
+    {
+      preserveScroll: true,
+    },
+  );
 };
 </script>
 
