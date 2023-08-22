@@ -76,7 +76,6 @@ class Topic extends Model
     ];
 
     protected $appends = [
-        'total_votes',
         'url',
     ];
 

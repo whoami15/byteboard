@@ -59,10 +59,6 @@ class Answer extends Model
         'total_votes'=> 'integer',
     ];
 
-    protected $appends = [
-        'total_votes',
-    ];
-
     public function votes(): MorphMany
     {
         return $this->morphMany(Vote::class, 'votable');
@@ -86,12 +82,5 @@ class Answer extends Model
     public function comments(): MorphMany
     {
         return $this->morphMany(Comment::class, 'commentable');
-    }
-
-    protected function totalVotes(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->votes()->sum(DB::raw('CASE WHEN type = "upvote" THEN 1 ELSE -1 END')),
-        );
     }
 }
