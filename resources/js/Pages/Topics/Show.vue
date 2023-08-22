@@ -1,6 +1,6 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
-import TopicActions from "./Partials/TopicActions.vue";
+import TopicAction from "./Partials/TopicAction.vue";
 
 const props = defineProps({
   topic: {
@@ -87,7 +87,7 @@ const castVote = (type) => {
 
           <div class="mt-4">
             <div class="mb-2 flex flex-row items-start justify-between">
-              <TopicActions :data="topic" @vote-casted="castVote" />
+              <TopicAction :data="topic" @vote-casted="castVote" />
 
               <div>
                 <div class="prose break-words text-zinc-800">

@@ -21,7 +21,7 @@ class VoteTopicController extends Controller
         }
 
         $topic->votes()->updateOrCreate([
-            'topic_id'=> $topic->id,
+            'votable_id' => $topic->id,
             'user_id'=> $user->id,
         ], [
             'type' => $request->input('type'),

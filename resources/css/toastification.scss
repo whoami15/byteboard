@@ -1,0 +1,127 @@
+// Import the regular Vue Toastification stylesheets
+@import "vue-toastification/src/scss/_variables";
+@import "vue-toastification/src/scss/_toastContainer";
+@import "vue-toastification/src/scss/_toast";
+@import "vue-toastification/src/scss/_closeButton";
+@import "vue-toastification/src/scss/_progressBar";
+@import "vue-toastification/src/scss/_icon";
+@import "vue-toastification/src/scss/animations/_bounce";
+
+// Override the variables or import a file that overrides them
+$vt-toast-min-width: 426px;
+$vt-toast-max-width: 600px;
+
+$vt-toast-min-height: 44px;
+$vt-toast-max-height: 800px;
+
+$vt-color-default: #f8fafc;
+$vt-text-color-default: #4b5563;
+$vt-color-info: #f8fafc;
+$vt-text-color-info: #4b5563;
+$vt-color-success: #f8fafc;
+$vt-text-color-success: #4b5563;
+$vt-color-warning: #f8fafc;
+$vt-text-color-warning: #4b5563;
+$vt-color-error: #f8fafc;
+$vt-text-color-error: #4b5563;
+$vt-color-error: #f8fafc;
+$vt-text-color-error: #4b5563;
+
+.#{$vt-namespace}__toast {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-height: $vt-toast-max-height;
+    min-height: $vt-toast-min-height;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    padding: 10px 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 2px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    justify-content: space-between;
+    font-family: $vt-font-family;
+    max-width: $vt-toast-max-width;
+    min-width: $vt-toast-min-width;
+    pointer-events: auto;
+    overflow: hidden;
+    // overflow: hidden + border-radius does not work properly on Safari
+    // The following magic line fixes it
+    // https://stackoverflow.com/a/58283449
+    transform: translateZ(0);
+    direction: ltr;
+    &--rtl {
+      direction: rtl;
+    }
+
+    &--default {
+      background-color: $vt-color-default;
+      color: $vt-text-color-default;
+    }
+    &--info {
+      background-color: $vt-color-info;
+      color: $vt-text-color-info;
+    }
+    &--success {
+      background-color: $vt-color-success;
+      color: $vt-text-color-success;
+    }
+    &--error {
+      background-color: $vt-color-error;
+      color: $vt-text-color-error;
+    }
+    &--warning {
+      background-color: $vt-color-warning;
+      color: $vt-text-color-warning;
+    }
+
+    @media #{$vt-mobile} {
+      border-radius: 0px;
+      margin-bottom: 0.5rem;
+    }
+
+    &-body {
+      flex: 1;
+      line-height: 24px;
+      font-size: 13px;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+
+    &-component-body {
+      flex: 1;
+    }
+
+    &.disable-transition {
+      animation: none !important;
+    }
+}
+
+.#{$vt-namespace}__close-button {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1px;
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    padding-left: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-items: center;
+    color: #6b7280;
+    vertical-align: middle;
+    opacity: 0.7;
+    transition: visibility 0s, opacity 0.2s linear;
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+    .#{$vt-namespace}__toast:not(:hover) &.show-on-hover {
+      opacity: 0;
+    }
+    .#{$vt-namespace}__toast--rtl & {
+      padding-left: unset;
+      padding-right: 10px;
+    }
+  }

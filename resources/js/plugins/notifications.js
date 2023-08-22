@@ -1,12 +1,12 @@
 import { useToast } from "vue-toastification";
-import "vue-toastification/dist/index.css";
+// import "vue-toastification/dist/index.css";
+import "../../css/toastification.scss";
 
 const toast = useToast({
   position: "top-center",
-  timeout: 3000,
+  timeout: 2000,
   draggable: false,
   hideProgressBar: true,
-  closeButton: false,
   icon: false,
   transition: "none",
 });

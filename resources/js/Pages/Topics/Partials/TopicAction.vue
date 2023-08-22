@@ -9,11 +9,11 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits("vote-casted");
+const emit = defineEmits(["voteCasted"]);
 
 const vote = (type) => {
   console.log("vote type:" + type);
-  emits("vote-casted", type);
+  emit("voteCasted", type);
 };
 </script>
 
