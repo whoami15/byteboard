@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="px-2 py-3 text-gray-900 md:px-5">
+  <div class="px-4 py-3 text-gray-900">
     <div class="flex flex-col items-center justify-between sm:flex-row">
       <Link
         :href="route('topics.show', [topic, topic.slug])"

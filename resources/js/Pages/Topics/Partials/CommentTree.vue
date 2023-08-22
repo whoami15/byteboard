@@ -15,18 +15,20 @@ const props = defineProps({
     <div
       v-for="comment in comments"
       :key="comment.id"
-      class="ml-6 break-words py-[6px] text-xs leading-5 text-zinc-800"
+      class="ml-6 py-[6px] text-xs leading-5 text-zinc-800"
     >
-      <p>
-        {{ comment.body }}
-        –&nbsp;<span class="text-blue-500 hover:text-blue-700">
-          {{ comment.user.name }}
-        </span>
+      <p
+        class="prose max-w-none break-words text-xs text-zinc-800 prose-code:font-mono prose-pre:font-mono"
+        v-html="comment.body"
+      ></p>
 
-        <span class="text-gray-400">
-          &nbsp;{{ formatToRelative(comment.created_at, "MMM D, YYYY H:mm") }}
-        </span>
-      </p>
+      –&nbsp;<span class="text-blue-500 hover:text-blue-700">
+        {{ comment.user.name }}
+      </span>
+
+      <span class="text-gray-400">
+        &nbsp;{{ formatToRelative(comment.created_at, "MMM D, YYYY H:mm") }}
+      </span>
     </div>
   </div>
 </template>

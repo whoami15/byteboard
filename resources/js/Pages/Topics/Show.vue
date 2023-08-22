@@ -35,7 +35,7 @@ const castVote = (type) => {
 
     <div class="py-4">
       <div class="mx-auto max-w-3xl sm:px-6 lg:px-8">
-        <div class="mt-0 px-2 sm:mt-6 md:px-5">
+        <div class="mt-0 px-4 sm:mt-6 sm:px-0">
           <div class="flex flex-col justify-between sm:flex-row">
             <span
               class="flex-1 break-words bg-white pr-0 text-2xl font-normal leading-7 text-zinc-700 sm:pr-3"
@@ -45,15 +45,17 @@ const castVote = (type) => {
 
             <button
               type="button"
-              class="-order-1 mb-3 inline-flex h-[min-content] items-center gap-x-1.5 self-end rounded-sm bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-600 sm:mb-0 sm:self-auto md:order-none"
+              class="-order-1 mb-3 inline-flex h-[min-content] items-center gap-x-1.5 self-end rounded-sm bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-600 sm:order-none sm:mb-0 sm:self-auto md:order-none"
             >
               Post Topic
             </button>
           </div>
 
-          <div class="mt-3 flex border-b border-b-zinc-200 pb-5 text-zinc-800">
+          <div
+            class="flex flex-wrap border-b border-b-zinc-200 pb-5 text-zinc-800"
+          >
             <div
-              class="mr-4 flex text-xs leading-none"
+              class="mr-4 mt-3 flex text-xs leading-none"
               :title="formatLocalTimestampToUtc(props.topic.created_at)"
             >
               <span class="mr-1 text-gray-500">Posted</span>
@@ -72,7 +74,7 @@ const castVote = (type) => {
             </div>
 
             <div
-              class="mr-4 flex text-xs leading-none"
+              class="mr-4 mt-3 flex text-xs leading-none"
               :title="formatLocalTimestampToUtc(props.topic.updated_at)"
             >
               <span class="mr-1 text-gray-500">Modified</span>
@@ -82,7 +84,7 @@ const castVote = (type) => {
               </span>
             </div>
 
-            <div class="mr-4 flex text-xs leading-none">
+            <div class="mr-4 mt-3 flex text-xs leading-none">
               <span class="mr-1 text-gray-500">Viewed</span>
 
               <span>{{ props.topic.views }} times</span>
@@ -90,19 +92,20 @@ const castVote = (type) => {
           </div>
 
           <div class="mt-4">
-            <div class="flex flex-row items-start justify-between pr-4">
+            <div class="flex flex-row items-start pr-4">
               <TopicAction :data="topic" @vote-casted="castVote" />
 
               <div>
-                <div class="prose break-words text-zinc-800">
-                  {{ props.topic.body }}
-                </div>
+                <div
+                  class="prose max-w-none break-words text-[16px] leading-normal text-zinc-800 prose-code:font-mono prose-code:text-xs prose-pre:bg-[#f6f6f6] prose-pre:font-mono prose-pre:text-zinc-800"
+                  v-html="props.topic.body"
+                ></div>
 
                 <div class="mt-6 flex flex-wrap gap-1">
                   <span
                     v-for="tag in props.topic.tags"
                     :key="tag.id"
-                    class="mr-1 inline-flex cursor-pointer items-center rounded-sm bg-blue-50 px-2 py-1 text-xs text-blue-700 hover:bg-blue-100 hover:text-blue-800"
+                    class="mr-1 inline-flex cursor-pointer items-center rounded-sm bg-blue-50 px-2 py-1 text-[12px] text-blue-700 hover:bg-blue-100 hover:text-blue-800"
                   >
                     {{ tag.name }}
                   </span>
@@ -115,12 +118,15 @@ const castVote = (type) => {
             <div
               v-for="answer in props.topic.answers"
               :key="answer.id"
-              class="my-6 flex flex-row items-start justify-between border-t border-t-gray-200 pr-4 pt-4"
+              class="my-6 flex flex-row items-start border-t border-t-gray-200 pr-4 pt-4"
             >
               <TopicAction :data="answer" @vote-casted="castVote" />
 
               <div>
-                <div class="answer">{{ answer.body }}</div>
+                <div
+                  class="answer prose max-w-none break-words text-[16px] leading-normal text-zinc-800 prose-code:font-mono prose-code:text-xs prose-pre:font-mono"
+                  v-html="answer.body"
+                ></div>
 
                 <CommentTree :comments="answer.comments" />
               </div>

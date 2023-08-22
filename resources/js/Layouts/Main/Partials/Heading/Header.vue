@@ -14,7 +14,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
     as="nav"
     class="border-b border-t-[3px] border-t-blue-600 bg-white"
   >
-    <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
       <div class="flex h-16 justify-between">
         <div class="flex pl-0 pr-2 lg:pl-2">
           <div class="flex shrink-0 items-center">
@@ -26,10 +26,10 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 
         <Search />
 
-        <div class="flex items-center lg:hidden">
+        <div class="flex items-center pl-2 lg:hidden">
           <!-- Mobile menu button -->
           <DisclosureButton
-            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+            class="relative inline-flex items-center justify-center rounded-md text-gray-400 hover:bg-gray-100 hover:text-gray-500"
           >
             <span class="absolute -inset-0.5" />
 

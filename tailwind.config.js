@@ -1,5 +1,6 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
+import typography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -32,9 +33,32 @@ export default {
         // sans: ["Outfit", ...defaultTheme.fontFamily.sans],
         grotesk: ["Space Grotesk", ...defaultTheme.fontFamily.sans],
         epilogue: ["Epilogue", ...defaultTheme.fontFamily.sans],
+        mono: ["Cascadia Mono", ...defaultTheme.fontFamily.mono],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            "code::before": {
+              content: "none",
+            },
+            "code::after": {
+              content: "none",
+            },
+            code: {
+              color: "#232629",
+              backgroundColor: "#e3e6e8",
+              fontWeight: "400",
+              borderRadius: "4px",
+              paddingLeft: "4px",
+              paddingRight: "4px",
+              paddingTop: "2px",
+              paddingBottom: "2px",
+            },
+          },
+        },
+      }),
     },
   },
 
-  plugins: [forms],
+  plugins: [forms, typography],
 };

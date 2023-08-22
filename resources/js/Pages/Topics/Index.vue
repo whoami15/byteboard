@@ -20,7 +20,7 @@ const props = defineProps({
 
     <div class="py-4">
       <div class="mx-auto max-w-3xl sm:px-6 lg:px-8">
-        <div class="mt-0 px-2 sm:mt-6 sm:px-0">
+        <div class="mt-0 px-4 sm:mt-6 sm:px-0">
           <div class="flex items-center justify-between">
             <span class="bg-white pr-3 text-2xl leading-6 text-gray-900">
               All Topics

@@ -19,7 +19,7 @@ const { pages, previous, next } = usePaginator(props.data);
 <template>
   <nav
     v-if="props.data.data.length"
-    class="mt-4 flex items-center justify-between border-t border-gray-200 px-5"
+    class="mt-4 flex items-center justify-between border-t border-gray-200 px-4"
   >
     <div class="group">
       <div
