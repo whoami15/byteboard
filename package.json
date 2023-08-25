@@ -8,10 +8,10 @@
         "format": "prettier \"resources/js/**/*.{js,vue,css}\" --write"
     },
     "devDependencies": {
-        "@inertiajs/vue3": "^1.0.0",
-        "@tailwindcss/forms": "^0.5.3",
+        "@inertiajs/vue3": "^1.0.11",
+        "@tailwindcss/forms": "^0.5.5",
         "@tailwindcss/typography": "^0.5.9",
-        "@vitejs/plugin-vue": "^4.3.0",
+        "@vitejs/plugin-vue": "^4.3.3",
         "autoprefixer": "^10.4.15",
         "axios": "^1.1.2",
         "eslint": "^8.47.0",
@@ -24,7 +24,7 @@
         "postcss": "^8.4.28",
         "prettier": "^3.0.2",
         "prettier-plugin-tailwindcss": "^0.5.3",
-        "sass": "^1.65.1",
+        "sass": "^1.66.1",
         "tailwindcss": "^3.2.1",
         "unplugin-auto-import": "^0.16.6",
         "unplugin-vue-components": "^0.25.1",
@@ -32,7 +32,7 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
-        "@headlessui/vue": "^1.7.15",
+        "@headlessui/vue": "^1.7.16",
         "@heroicons/vue": "^2.0.18",
         "@vueuse/core": "^10.3.0",
         "dayjs": "^1.11.9",
