@@ -34,7 +34,9 @@ const submit = () => {
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-      <div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+      <div
+        class="border-0 border-gray-200 bg-white px-6 sm:rounded-sm sm:border sm:px-8 sm:py-12 sm:shadow-sm"
+      >
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
           {{ status }}
         </div>
@@ -48,6 +50,7 @@ const submit = () => {
                 id="email"
                 v-model="form.email"
                 type="email"
+                placeholder="you@example.com"
                 required
                 autofocus
                 autocomplete="username"
@@ -75,7 +78,11 @@ const submit = () => {
 
           <div class="flex items-center justify-between">
             <div class="flex items-center">
-              <Checkbox v-model:checked="form.remember" name="remember" />
+              <Checkbox
+                id="remember-me"
+                v-model:checked="form.remember"
+                name="remember"
+              />
 
               <InputLabel for="remember-me" class="ml-3" value="Remember me" />
             </div>
@@ -112,7 +119,7 @@ const submit = () => {
             <div
               class="relative flex justify-center text-sm font-medium leading-6"
             >
-              <span class="bg-white px-6 text-gray-900">Or continue with</span>
+              <span class="bg-white px-6 text-gray-900">or</span>
             </div>
           </div>
 
