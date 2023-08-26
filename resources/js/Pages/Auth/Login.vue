@@ -124,7 +124,7 @@ const submit = () => {
 
           <div class="mt-6 grid grid-cols-2 gap-4">
             <a
-              href="#"
+              :href="route('auth.social.redirect', 'google')"
               class="flex w-full items-center justify-center gap-3 rounded-sm border border-gray-300 bg-white px-3 py-1.5 text-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-300"
             >
               <svg
@@ -158,7 +158,7 @@ const submit = () => {
             </a>
 
             <a
-              href="#"
+              :href="route('auth.social.redirect', 'github')"
               class="flex w-full items-center justify-center gap-3 rounded-sm bg-[#24292F] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#24292F]"
             >
               <svg

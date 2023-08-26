@@ -14,7 +14,7 @@ return new class extends Migration
                 ->unique()
                 ->nullable();
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('name');
             $table->string('role');
             $table->string('default_avatar')->nullable();
@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('github_username')->nullable();
             $table->string('x_username')->nullable();
             $table->string('country')->nullable();
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
+            $table->text('access_token')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

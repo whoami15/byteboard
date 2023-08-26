@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Socialite\CallbackController;
+use App\Http\Controllers\Socialite\RedirectController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Routing\Middleware\ThrottleRequests;
@@ -36,6 +38,12 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
+
+    Route::get('auth/{provider}/redirect', RedirectController::class)
+        ->name('auth.social.redirect');
+
+    Route::get('auth/{provider}/callback', CallbackController::class)
+        ->name('auth.social.callback');
 });
 
 Route::middleware(Authenticate::class)->group(function () {
