@@ -37,11 +37,11 @@ const castVote = (type) => {
       <div class="mx-auto max-w-3xl sm:px-6 lg:px-8">
         <div class="mt-0 px-4 sm:mt-6 sm:px-0">
           <div class="flex flex-col justify-between sm:flex-row">
-            <span
-              class="flex-1 break-words bg-white pr-0 text-2xl font-normal leading-7 text-zinc-700 sm:pr-3"
+            <h1
+              class="flex-1 break-words pr-0 text-2xl font-normal leading-7 text-zinc-700 sm:pr-3"
             >
               {{ props.topic.title }}
-            </span>
+            </h1>
 
             <button
               type="button"
@@ -115,21 +115,30 @@ const castVote = (type) => {
               </div>
             </div>
 
-            <div
-              v-for="answer in props.topic.answers"
-              :key="answer.id"
-              class="my-6 flex flex-row items-start border-t border-t-gray-200 pr-4 pt-4"
-            >
-              <TopicAction :data="answer" @vote-casted="castVote" />
+            <div class="pt-4">
+              <h1
+                class="flex-1 break-words bg-white pr-0 text-xl font-normal leading-7 text-zinc-700 sm:pr-3"
+              >
+                {{ props.topic.answers_count }}
+                {{ pluralize(props.topic.answers_count, "Answer") }}
+              </h1>
 
-              <div>
+              <template v-for="answer in props.topic.answers" :key="answer.id">
                 <div
-                  class="answer prose max-w-none break-words text-[16px] leading-normal text-zinc-800 prose-code:font-mono prose-code:text-xs prose-pre:font-mono"
-                  v-html="answer.body"
-                ></div>
+                  class="my-6 flex flex-row items-start border-t border-t-zinc-200 pr-4 pt-4 first-of-type:border-t-0 first-of-type:pt-0"
+                >
+                  <TopicAction :data="answer" @vote-casted="castVote" />
 
-                <CommentTree :comments="answer.comments" />
-              </div>
+                  <div>
+                    <div
+                      class="answer prose max-w-none break-words text-[16px] leading-normal text-zinc-800 prose-code:font-mono prose-code:text-xs prose-pre:font-mono"
+                      v-html="answer.body"
+                    ></div>
+
+                    <CommentTree :comments="answer.comments" />
+                  </div>
+                </div>
+              </template>
             </div>
           </div>
         </div>

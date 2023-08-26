@@ -1,7 +1,4 @@
 <script setup>
-import { formatDate } from "@vueuse/core";
-import CommentTree from "../Partials/CommentTree.vue";
-
 const props = defineProps({
   comments: {
     type: Object,
@@ -11,16 +8,16 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="mt-6 divide-y divide-gray-100 border-t border-t-gray-200">
+  <div class="mt-6 divide-y divide-[#f1f2f3] border-t border-t-zinc-200">
     <div
       v-for="comment in comments"
       :key="comment.id"
       class="ml-6 py-[6px] text-xs leading-5 text-zinc-800"
     >
-      <p
+      <span
         class="prose max-w-none break-words text-xs text-zinc-800 prose-code:font-mono prose-pre:font-mono"
         v-html="comment.body"
-      ></p>
+      ></span>
 
       –&nbsp;<span class="text-blue-500 hover:text-blue-700">
         {{ comment.user.name }}

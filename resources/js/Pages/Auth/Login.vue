@@ -35,7 +35,7 @@ const submit = () => {
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[380px]">
       <div
-        class="border-0 border-gray-200 bg-zinc-50 px-8 sm:rounded-sm sm:border sm:bg-white sm:p-8 sm:shadow-sm"
+        class="border-0 border-gray-200 bg-white px-8 sm:rounded-sm sm:border sm:p-8 sm:shadow-sm"
       >
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
           {{ status }}
@@ -118,7 +118,7 @@ const submit = () => {
             <div
               class="relative flex justify-center text-sm font-medium leading-6"
             >
-              <span class="bg-zinc-50 px-6 text-gray-900 sm:bg-white">or</span>
+              <span class="bg-white px-6 text-gray-900">or</span>
             </div>
           </div>
 
