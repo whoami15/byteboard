@@ -29,7 +29,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
         <div class="flex items-center pl-2 lg:hidden">
           <!-- Mobile menu button -->
           <DisclosureButton
-            class="relative inline-flex items-center justify-center rounded-md text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+            class="relative inline-flex items-center justify-center rounded-sm text-gray-400 hover:bg-gray-100 hover:text-gray-500"
           >
             <span class="absolute -inset-0.5" />
 
