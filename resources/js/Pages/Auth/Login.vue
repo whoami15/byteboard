@@ -35,7 +35,7 @@ const submit = () => {
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
       <div
-        class="border-0 border-gray-200 bg-white px-6 sm:rounded-sm sm:border sm:px-8 sm:py-12 sm:shadow-sm"
+        class="border-0 border-gray-200 bg-zinc-50 px-6 sm:rounded-sm sm:border sm:bg-white sm:px-8 sm:py-12 sm:shadow-sm"
       >
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
           {{ status }}
@@ -111,7 +111,7 @@ const submit = () => {
         </form>
 
         <div>
-          <div class="relative mt-10">
+          <div class="relative mt-6">
             <div class="absolute inset-0 flex items-center" aria-hidden="true">
               <div class="w-full border-t border-gray-200" />
             </div>
