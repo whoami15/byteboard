@@ -13,8 +13,8 @@
         "@tailwindcss/typography": "^0.5.9",
         "@vitejs/plugin-vue": "^4.3.3",
         "autoprefixer": "^10.4.15",
-        "axios": "^1.1.2",
-        "eslint": "^8.47.0",
+        "axios": "^1.5.0",
+        "eslint": "^8.48.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-tailwindcss": "^3.13.0",
         "eslint-plugin-unused-imports": "^3.0.0",
@@ -29,12 +29,12 @@
         "unplugin-auto-import": "^0.16.6",
         "unplugin-vue-components": "^0.25.1",
         "vite": "^4.0.0",
-        "vue": "^3.2.41"
+        "vue": "^3.3.4"
     },
     "dependencies": {
         "@headlessui/vue": "^1.7.16",
         "@heroicons/vue": "^2.0.18",
-        "@vueuse/core": "^10.3.0",
+        "@vueuse/core": "^10.4.0",
         "dayjs": "^1.11.9",
         "laravel-precognition-vue-inertia": "^0.4.1",
         "momentum-paginator": "^1.0.6",
