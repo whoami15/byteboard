@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         JsonResource::withoutWrapping();
 
-        Model::shouldBeStrict(! App::isProduction());
+        Model::shouldBeStrict(! $this->app->isProduction());
 
         Model::unguard();
 
